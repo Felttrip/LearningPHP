@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My first PHP page</h1>
+
+<?php
+  //class testing
+  class Car
+  {
+    var $color;
+    function Car($color="green")
+    {
+      $this->color= $color;
+    }
+    function what_color()
+    {
+      return $this->color;
+    }
+  }
+  //Testing Hello world
+  echo "Hello World!","<br>";
+
+  //testing defining varables
+  $x=5;
+  $y=6;
+  $z=$x+$y;
+  
+  //printing variables, combining items to print and printing HTML
+  echo "x= ",$x,"<br>";
+  echo "y= ",$y,"<br>";
+  echo "x+y= ",$z,"<br>";
+
+  //defining functions
+  function myTest()
+  {
+    $x="hello";
+    $y="world";
+    echo $x," ",$y,"<br>";
+  } 
+  
+  //using the global modifier
+  function myTest2()
+  {
+    global $x,$y;
+    echo $x," ",$y,"<br>";
+  }
+  
+  //runing functions
+  myTest();
+  myTest2(); 
+
+  //testing global array
+  function globalTest()
+  {
+    $x=4;
+    echo $x,"<br>";
+    echo $GLOBALS['x'];            //works
+    echo $GLOBALS['x'+1],"<br>";   //doesn't work
+    echo $GLOBALS['x+1'],"<br>";   //doesn't work
+    echo $GLOBALS['x'+'y'],"<br>"; //doesn't work
+  }
+  globalTest();
+
+  //testing static variables
+  function staticTest()
+  {
+    static $x=0;
+    $x++;
+    echo $x;
+  }
+  
+  //for loop test and static test
+  for($i=0;$i<5;$i++)
+  {
+    staticTest();
+  }
+
+  //echo testing
+  echo "<h2>PHP is fun!</h2>";
+  echo "Hello world!<br>";
+  echo "I'm about to learn PHP!<br>";
+  echo "This", " string", " was", " made", " with multiple parameters.";
+
+  $text1="Learn PHP";
+  $test2="<h1>HTML heading test</h1>";
+  $cars=array("Volvo","BMW","Toyota");
+
+  echo $test1,"<br>";
+  echo "this is an $test2";
+ 
+  //tesing for loops and echo 
+  
+  for($p=0;$p<4;$p++)
+  {
+      echo "{$cars[$p]}<br>";
+  }
+
+  //print test
+  print "<h2>PHP is fun!</h2>";
+  print "Hello world!<br>";
+  print "I'm about to learn PHP!<br>";
+
+  $txt1="Learn PHP";
+  $txt2="W3Schools.com";
+
+  print $txt1;
+  print "<br>";
+  print "Study PHP at $txt2<br>";
+  
+  //testing for loop usage with print
+  for($i=0;$i<=4;$i++);
+  {
+    print "My car is a {$cars[$i]}<br>";
+  }
+
+  //testing data types
+  // ints
+  $x = 5985;
+  var_dump($x);
+  echo "<br>";
+  $x = -345; // negative number
+  var_dump($x);
+  echo "<br>";
+  $x = 0x8C; // hexadecimal number
+  var_dump($x);
+  echo "<br>";
+  $x = 047; // octal number
+  var_dump($x); 
+  echo "<br>";
+
+  //floting point numbers(doubles or floats)
+  $x = 10.365;
+  var_dump($x);
+  echo "<br>";
+  $x = 2.4e3;
+  var_dump($x);
+  echo "<br>";
+  $x = 8E-5;
+  var_dump($x);
+  echo "<br>";
+
+  //testing boleans and strings
+  $x=true;
+  var_dump(x);
+  $x="nate" ;
+  echo "<br>$x<br>";
+
+  //arrays
+  var_dump($cars);
+  
+  //String functions
+  echo "<br>",strlen("hello world"),"<br>";
+  echo strpos("Hello world!","world");
+
+  //constant testing
+  define("GREETING", "Welcome to W3Schools.com!",true);
+  echo "<br>",GreeTing;
+
+  //date and time testing
+  $t=date("g:i a");
+  echo "<br>",$t;   
+
+  for ($x=0; $x<=10; $x++)
+  {
+  echo "The number is: $x <br>";
+  }  
+
+  //for each loop testing
+  $colors = array("red","green","blue","yellow");
+  foreach ($colors as $value)
+  {
+    echo "$value <br>";
+  }
+
+  //globals testing
+echo $_SERVER['PHP_SELF'];
+echo "<br>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br>";
+echo $_SERVER['HTTP_REFERER'];
+echo "<br>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo $_SERVER['SCRIPT_NAME'];
+?>
+
+</body>
+</html>
